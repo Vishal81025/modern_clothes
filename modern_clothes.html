@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Clothes – Style That Defines You</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a; --dark: #111318; --card: #161b22; --navy: #0d1b2a;
+    --grey: #8b949e; --light: #c9d1d9; --white: #f0f6fc;
+    --accent: #e8a020; --border: rgba(255,255,255,0.07);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Outfit',sans-serif; background:var(--black); color:var(--white); overflow-x:hidden; }
+
+  /* HEADER */
+  header { position:fixed; top:0; width:100%; z-index:1000; background:rgba(10,10,10,0.94); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+  .header-inner { max-width:1280px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:68px; }
+  .brand { display:flex; flex-direction:column; line-height:1; text-decoration:none; }
+  .brand-name { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:3px; background:linear-gradient(135deg,#fff,var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .brand-tag { font-size:0.6rem; color:var(--grey); letter-spacing:2.5px; text-transform:uppercase; }
+  nav { display:flex; gap:26px; }
+  nav a { color:var(--light); text-decoration:none; font-size:0.87rem; font-weight:500; position:relative; transition:color .2s; }
+  nav a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:var(--accent); transition:width .2s; }
+  nav a:hover { color:var(--accent); }
+  nav a:hover::after { width:100%; }
+  .header-actions { display:flex; align-items:center; gap:12px; }
+  .cart-btn { background:var(--accent); color:#000; border:none; padding:8px 18px; border-radius:4px; cursor:pointer; font-family:'Outfit',sans-serif; font-weight:700; font-size:0.84rem; display:flex; align-items:center; gap:7px; transition:opacity .2s; }
+  .cart-btn:hover { opacity:.85; }
+  .cart-count { background:#000; color:var(--accent); border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:700; }
+  .menu-toggle { display:none; background:none; border:none; color:var(--white); font-size:1.5rem; cursor:pointer; }
+  
+  /* THEME TOGGLE */
+  .theme-toggle { background:rgba(232,160,32,.1); border:1.5px solid var(--accent); color:var(--accent); width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center; transition:all .3s; }
+  .theme-toggle:hover { background:var(--accent); color:#000; transform:scale(1.1); }
+  
+  /* LIGHT MODE STYLES */
+  body.light-mode { background:#ffffff; color:#1a1a1a; }
+  body.light-mode header { background:rgba(255,255,255,.98); border-bottom-color:rgba(0,0,0,.1); }
+  body.light-mode nav a { color:#333; }
+  body.light-mode nav a:hover { color:var(--accent); }
+  body.light-mode .cart-btn { background:var(--accent); color:#fff; }
+  body.light-mode .stats-bar { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .cat-nav { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .cat-link { color:#666; }
+  body.light-mode .cat-link:hover { color:var(--accent); border-color:var(--accent); }
+  body.light-mode .pcard { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .pname { color:#1a1a1a; }
+  body.light-mode .pdesc { color:#666; }
+  body.light-mode .sec-desc { color:#666; }
+  body.light-mode .sec-title { color:#1a1a1a; }
+  body.light-mode .sub-title { color:#1a1a1a; }
+  body.light-mode .sub-desc { color:#666; }
+  body.light-mode .about-txt h2 { color:#1a1a1a; }
+  body.light-mode .about-txt p { color:#666; }
+  body.light-mode .about-card { background:linear-gradient(135deg, #f9f9f9, #ffffff); border-color:rgba(0,0,0,.1); }
+  body.light-mode .ccard { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .clbl { color:#666; }
+  body.light-mode .cval { color:#1a1a1a; }
+  body.light-mode .cform { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .cform h3 { color:#1a1a1a; }
+  body.light-mode .fg label { color:#666; }
+  body.light-mode .fg input, body.light-mode .fg select, body.light-mode .fg textarea { background:#f9f9f9; border-color:rgba(0,0,0,.15); color:#1a1a1a; }
+  body.light-mode .fg select option { background:#ffffff; color:#1a1a1a; }
+  body.light-mode footer { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .footer-col h4 { color:#1a1a1a; }
+  body.light-mode .footer-col a { color:#666; }
+  body.light-mode .footer-btm { color:#666; }
+  body.light-mode .modal { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .modal-cat { color:var(--accent); }
+  body.light-mode .modal-name { color:#1a1a1a; }
+  body.light-mode .modal-desc { color:#666; }
+  body.light-mode .cart-drawer { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .cart-hdr { border-color:rgba(0,0,0,.1); }
+  body.light-mode .cart-hdr h3 { color:#1a1a1a; }
+  body.light-mode .citem { border-color:rgba(0,0,0,.1); color:#1a1a1a; }
+  body.light-mode .citem-name { color:#1a1a1a; }
+  body.light-mode .cart-ftr { border-color:rgba(0,0,0,.1); }
+  body.light-mode .cart-empty { color:#666; }
+  body.light-mode .ord-sum { background:#ffffff; border-color:rgba(0,0,0,.1); }
+  body.light-mode .ord-sum h3 { color:#1a1a1a; }
+  body.light-mode .ord-item { border-color:rgba(0,0,0,.1); color:#1a1a1a; }
+  body.light-mode .ck-form h2 { color:#1a1a1a; }
+  body.light-mode #about { background:#ffffff; }
+  body.light-mode #contact { background:#ffffff; }
+  body.light-mode #checkout { background:#ffffff; }
+  body.light-mode #mens-wear { background:#ffffff; }
+  body.light-mode #jeans-section { background:#ffffff !important; }
+  body.light-mode #shirts-section { background:#ffffff !important; }
+  body.light-mode #tshirts-section { background:#ffffff !important; }
+  body.light-mode #hoodies-section { background:#ffffff !important; }
+  body.light-mode #watches-section { background:#ffffff !important; }
+  body.light-mode #perfumes-section { background:#ffffff !important; }
+  body.light-mode .sec-hdr { color:#1a1a1a; }
+  body.light-mode .sec-tag { color:var(--accent); }
+  body.light-mode .sec-title { color:#1a1a1a; }
+  body.light-mode .sec-desc { color:#666; }
+  body.light-mode [style*="background:var(--black)"] { background:#ffffff !important; }
+  body.light-mode [style*="background:var(--dark)"] { background:#ffffff !important; }
+  body.light-mode [style*="background:var(--navy)"] { background:#ffffff !important; }
+
+  /* CAROUSEL - ENHANCED */
+  .hero-section { margin-top:68px; }
+  .carousel-wrap { position:relative; width:100%; overflow:hidden; background:#1a1a1a; }
+  body.light-mode .carousel-wrap { background:#fff; }
+  .carousel-track { display:flex; transition:transform .65s cubic-bezier(.77,0,.18,1); will-change:transform; }
+  .c-slide { min-width:100%; position:relative; height:540px; overflow:hidden; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:radial-gradient(ellipse at center, rgba(0,0,0,.3) 0%, rgba(0,0,0,.8) 100%); }
+  body.light-mode .c-slide { background:radial-gradient(ellipse at center, rgba(0,0,0,.1) 0%, rgba(0,0,0,.3) 100%); }
+  
+  /* Dynamic zoom & brightness effect */
+  .c-slide img { 
+    width:100%; 
+    height:100%; 
+    object-fit:cover; 
+    display:block; 
+    transform:scale(1.2) translateZ(0); 
+    transition:transform 1s cubic-bezier(.34,.1,.68,.95), filter 1s ease, brightness 1s ease;
+    filter:brightness(.88) contrast(1.05) saturate(1.1);
+    will-change:transform,filter;
+  }
+  .c-slide.active img { 
+    transform:scale(1) translateZ(0); 
+    filter:brightness(1) contrast(1.08) saturate(1.15);
+  }
+
+  /* Overlay gradient - deeper effect */
+  .c-overlay { 
+    position:absolute; 
+    inset:0; 
+    background:linear-gradient(90deg, 
+      rgba(0,0,0,.88) 0%, 
+      rgba(0,0,0,.65) 40%,
+      rgba(0,0,0,.35) 70%,
+      transparent 100%);
+    display:flex; 
+    align-items:center; 
+    padding:0 72px;
+    z-index:2;
+  }
+  body.light-mode .c-overlay {
+    background:linear-gradient(90deg, 
+      rgba(0,0,0,.65) 0%, 
+      rgba(0,0,0,.35) 40%,
+      rgba(0,0,0,.1) 70%,
+      transparent 100%);
+  }
+
+  .c-content { max-width:540px; }
+  
+  /* Enhanced badge with glow effect */
+  .c-badge { 
+    display:inline-flex; 
+    align-items:center; 
+    gap:9px; 
+    background:rgba(232,160,32,.15); 
+    border:2px solid var(--accent); 
+    color:var(--accent); 
+    padding:10px 20px; 
+    border-radius:50px; 
+    font-size:0.78rem; 
+    font-weight:700; 
+    letter-spacing:2.5px; 
+    text-transform:uppercase; 
+    margin-bottom:20px; 
+    animation:badgePulse .7s ease both; 
+    animation-delay:.1s;
+    box-shadow:0 0 25px rgba(232,160,32,.3), inset 0 0 15px rgba(232,160,32,.1);
+    position:relative;
+  }
+  .c-badge::before { 
+    content:''; 
+    position:absolute; 
+    inset:0; 
+    background:radial-gradient(circle, rgba(232,160,32,.2), transparent); 
+    border-radius:50px; 
+    animation:badgeGlow 2s ease-in-out infinite;
+  }
+  @keyframes badgePulse { 
+    from { opacity:0; transform:scale(.7) translateY(30px); } 
+    to { opacity:1; transform:scale(1) translateY(0); } 
+  }
+  @keyframes badgeGlow { 
+    0%,100% { box-shadow:0 0 15px rgba(232,160,32,.3); } 
+    50% { box-shadow:0 0 30px rgba(232,160,32,.5); } 
+  }
+
+  /* Enhanced title with slide animation */
+  .c-title { 
+    font-family:'Bebas Neue',sans-serif; 
+    font-size:clamp(2.8rem,5.5vw,5rem); 
+    line-height:.93; 
+    letter-spacing:2px; 
+    margin-bottom:16px; 
+    animation:titleSlideIn .8s cubic-bezier(.34,.1,.68,.95) both; 
+    animation-delay:.2s;
+    text-shadow:0 6px 20px rgba(0,0,0,.6), 0 2px 4px rgba(0,0,0,.8);
+    font-weight:900;
+  }
+  @keyframes titleSlideIn { 
+    from { opacity:0; transform:translateX(-50px) skewX(5deg); } 
+    to { opacity:1; transform:translateX(0) skewX(0deg); } 
+  }
+  .c-title span { color:var(--accent); text-shadow:0 4px 15px rgba(232,160,32,.4); }
+
+  /* Enhanced subtitle */
+  .c-sub { 
+    color:rgba(255,255,255,.92); 
+    font-size:1rem; 
+    line-height:1.7; 
+    margin-bottom:32px; 
+    animation:subtitleFadeIn .7s ease both; 
+    animation-delay:.35s;
+    font-weight:500;
+  }
+  @keyframes subtitleFadeIn { 
+    from { opacity:0; transform:translateY(20px); } 
+    to { opacity:1; transform:translateY(0); } 
+  }
+
+  /* Button animations */
+  .c-btns { 
+    display:flex; 
+    gap:16px; 
+    flex-wrap:wrap; 
+    animation:ctaSlideIn .8s ease both; 
+    animation-delay:.45s;
+  }
+  @keyframes ctaSlideIn { 
+    from { opacity:0; transform:translateY(30px) scale(.95); } 
+    to { opacity:1; transform:translateY(0) scale(1); } 
+  }
+
+  /* Navigation arrows - enhanced */
+  .c-arrow { 
+    position:absolute; 
+    top:50%; 
+    transform:translateY(-50%); 
+    background:rgba(255,255,255,.12); 
+    backdrop-filter:blur(10px); 
+    border:1.5px solid rgba(232,160,32,.35); 
+    color:#fff; 
+    width:56px; 
+    height:56px; 
+    border-radius:50%; 
+    font-size:2rem; 
+    cursor:pointer; 
+    z-index:10; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    transition:all .3s cubic-bezier(.34,.1,.68,.95);
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+  }
+  .c-arrow:hover { 
+    background:var(--accent); 
+    color:#000; 
+    transform:translateY(-50%) scale(1.12);
+    box-shadow:0 12px 32px rgba(232,160,32,.45);
+    border-color:var(--accent);
+  }
+  .c-prev { left:24px; } 
+  .c-next { right:24px; }
+
+  /* Enhanced dots with smooth transitions */
+  .c-dots { 
+    position:absolute; 
+    bottom:28px; 
+    left:50%; 
+    transform:translateX(-50%); 
+    display:flex; 
+    gap:10px; 
+    z-index:10;
+    background:rgba(0,0,0,.35);
+    padding:12px 20px;
+    border-radius:50px;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .c-dot { 
+    width:10px; 
+    height:10px; 
+    border-radius:50%; 
+    background:rgba(255,255,255,.5); 
+    border:none; 
+    cursor:pointer; 
+    transition:all .4s cubic-bezier(.34,.1,.68,.95); 
+    padding:0;
+    box-shadow:0 2px 8px rgba(0,0,0,.3);
+  }
+  .c-dot:hover { background:rgba(255,255,255,.75); transform:scale(1.2); }
+  .c-dot.active { 
+    background:var(--accent); 
+    width:32px; 
+    border-radius:5px;
+    box-shadow:0 4px 12px rgba(232,160,32,.5);
+  }
+
+  /* Progress bar - animated */
+  .c-progress { 
+    position:absolute; 
+    bottom:0; 
+    left:0; 
+    height:4px; 
+    background:linear-gradient(90deg, var(--accent) 0%, rgba(232,160,32,.6) 100%); 
+    z-index:10; 
+    animation:cProgress 4s cubic-bezier(.25,.46,.45,.94) forwards;
+    box-shadow:0 0 20px rgba(232,160,32,.4);
+  }
+  @keyframes cProgress { 
+    from { width:0%; } 
+    to { width:100%; } 
+  }
+
+  /* BUTTONS */
+  .btn-gold { background:var(--accent); color:#000; padding:12px 28px; border-radius:4px; text-decoration:none; font-weight:700; font-size:.9rem; display:inline-block; transition:transform .2s,box-shadow .2s; border:none; cursor:pointer; font-family:'Outfit',sans-serif; }
+  .btn-gold:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(232,160,32,.4); }
+  .btn-outline { border:1px solid rgba(255,255,255,.3); color:var(--white); padding:12px 28px; border-radius:4px; text-decoration:none; font-weight:600; font-size:.9rem; transition:all .2s; display:inline-block; }
+  .btn-outline:hover { border-color:var(--accent); background:rgba(232,160,32,.06); color:var(--accent); }
+  .btn-green { background:#25D366; color:#fff; border:none; padding:14px; border-radius:6px; font-weight:700; font-size:.9rem; cursor:pointer; font-family:'Outfit',sans-serif; display:flex; align-items:center; justify-content:center; gap:9px; text-decoration:none; transition:opacity .2s; }
+  .btn-green:hover { opacity:.85; }
+
+  /* STATS */
+  .stats-bar { background:var(--card); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:24px; }
+  .stats-inner { max-width:1280px; margin:auto; display:flex; justify-content:space-around; flex-wrap:wrap; gap:18px; }
+  .stat { text-align:center; }
+  .stat-num { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--accent); letter-spacing:2px; }
+  .stat-lbl { font-size:.75rem; color:var(--grey); letter-spacing:1px; text-transform:uppercase; margin-top:2px; }
+
+  /* CAT NAV */
+  .cat-nav { background:var(--card); border-bottom:1px solid var(--border); padding:0 24px; position:sticky; top:68px; z-index:900; }
+  .cat-nav-in { max-width:1280px; margin:auto; display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
+  .cat-nav-in::-webkit-scrollbar { display:none; }
+  .cat-link { display:flex; flex-direction:column; align-items:center; gap:3px; padding:12px 20px; text-decoration:none; color:var(--grey); font-size:.75rem; font-weight:600; letter-spacing:.5px; border-bottom:2px solid transparent; white-space:nowrap; transition:all .2s; flex-shrink:0; }
+  .cat-link:hover { color:var(--accent); border-bottom-color:var(--accent); }
+  .cat-ico { font-size:1.15rem; }
+
+  /* SHARED */
+  .container { max-width:1280px; margin:auto; }
+  .sec-tag { font-size:.72rem; color:var(--accent); letter-spacing:3px; text-transform:uppercase; font-weight:600; margin-bottom:9px; }
+  .sec-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3rem); letter-spacing:2px; }
+  .sec-desc { color:var(--grey); margin-top:9px; font-size:.91rem; }
+  .sec-hdr { text-align:center; margin-bottom:42px; }
+
+  /* SUBSECTION */
+  .sub-hdr { margin-bottom:26px; }
+  .sub-left { display:flex; align-items:center; gap:16px; }
+  .sub-ico { font-size:2rem; width:58px; height:58px; background:rgba(232,160,32,.08); border:1px solid rgba(232,160,32,.22); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .sub-title { font-family:'Bebas Neue',sans-serif; font-size:1.65rem; letter-spacing:2px; margin-bottom:2px; }
+  .sub-desc { color:var(--grey); font-size:.84rem; }
+
+  /* SUB LABEL */
+  .sub-label { display:flex; align-items:center; gap:13px; margin-bottom:17px; }
+  .sub-label::before { content:''; flex:0 0 3px; height:19px; background:var(--accent); border-radius:2px; }
+  .sub-label span { font-family:'Bebas Neue',sans-serif; font-size:1.05rem; letter-spacing:2px; color:var(--light); }
+  .sub-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .mt-40 { margin-top:40px; }
+
+  /* PRODUCT */
+  .pgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .pcard { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:transform .22s,border-color .22s; cursor:pointer; }
+  .pcard:hover { transform:translateY(-5px); border-color:rgba(232,160,32,.35); }
+  .pimg { width:100%; height:250px; position:relative; overflow:hidden; background:#0d1117; }
+  .pimg img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .45s; }
+  .pcard:hover .pimg img { transform:scale(1.07); }
+  .pbadge { position:absolute; top:10px; left:10px; z-index:1; background:var(--accent); color:#000; font-size:.67rem; font-weight:700; padding:3px 10px; border-radius:40px; }
+  .pinfo { padding:14px; }
+  .pname { font-weight:600; font-size:.89rem; margin-bottom:4px; }
+  .pdesc { color:var(--grey); font-size:.77rem; line-height:1.5; margin-bottom:12px; }
+  .pfooter { display:flex; align-items:center; justify-content:space-between; }
+  .pprice { font-family:'Bebas Neue',sans-serif; font-size:1.25rem; color:var(--accent); }
+  .pprice span { font-family:'Outfit',sans-serif; font-size:.71rem; color:var(--grey); text-decoration:line-through; margin-left:4px; font-weight:400; }
+  .padd { background:rgba(232,160,32,.08); border:1px solid rgba(232,160,32,.26); color:var(--accent); padding:6px 12px; border-radius:4px; cursor:pointer; font-size:.75rem; font-weight:600; transition:all .2s; font-family:'Outfit',sans-serif; }
+  .padd:hover { background:var(--accent); color:#000; }
+
+  /* MODAL */
+  .modal-overlay { display:none; position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,.88); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:20px; }
+  .modal-overlay.open { display:flex; }
+  .modal { background:var(--card); border:1px solid var(--border); border-radius:16px; max-width:720px; width:100%; max-height:92vh; overflow-y:auto; animation:slideUp .3s ease; }
+  @keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+  .modal-close { position:absolute; top:14px; right:18px; background:none; border:none; color:var(--grey); font-size:1.6rem; cursor:pointer; z-index:10; }
+  .modal-close:hover { color:var(--white); }
+  .modal-inner { display:grid; grid-template-columns:1fr 1fr; position:relative; }
+  .modal-img { min-height:320px; overflow:hidden; border-radius:16px 0 0 16px; background:#0d1117; }
+  .modal-img img { width:100%; height:100%; object-fit:cover; display:block; }
+  .modal-det { padding:28px 24px; }
+  .modal-cat { font-size:.7rem; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:7px; }
+  .modal-name { font-family:'Bebas Neue',sans-serif; font-size:1.7rem; letter-spacing:1px; margin-bottom:9px; }
+  .modal-price { font-family:'Bebas Neue',sans-serif; font-size:1.85rem; color:var(--accent); margin-bottom:13px; }
+  .modal-desc { color:var(--grey); font-size:.87rem; line-height:1.7; margin-bottom:24px; }
+  .modal-btns { display:flex; flex-direction:column; gap:11px; }
+
+  /* ABOUT */
+  #about { background:var(--black); padding:80px 24px; }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .about-card { background:linear-gradient(135deg,var(--navy),#1a1000); border:1px solid var(--border); border-radius:16px; padding:46px; text-align:center; position:relative; overflow:hidden; }
+  .about-card::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background:radial-gradient(circle,rgba(232,160,32,.14),transparent 70%); border-radius:50%; }
+  .about-ico { font-size:5rem; margin-bottom:16px; }
+  .about-owner { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:2px; color:var(--accent); }
+  .about-loc { color:var(--grey); font-size:.85rem; margin-top:5px; }
+  .about-txt h2 { font-family:'Bebas Neue',sans-serif; font-size:2.3rem; letter-spacing:2px; margin-bottom:16px; }
+  .about-txt p { color:var(--grey); line-height:1.8; margin-bottom:13px; }
+  .hl { color:var(--accent); font-weight:600; }
+
+  /* CONTACT */
+  #contact { background:var(--dark); padding:80px 24px; }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:34px; }
+  .contact-cards { display:flex; flex-direction:column; gap:16px; }
+  .ccard { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; display:flex; gap:13px; align-items:flex-start; transition:border-color .2s; }
+  .ccard:hover { border-color:rgba(232,160,32,.3); }
+  .cico { font-size:1.65rem; flex-shrink:0; }
+  .clbl { font-size:.7rem; color:var(--grey); letter-spacing:1px; text-transform:uppercase; margin-bottom:3px; }
+  .cval { font-weight:600; font-size:.9rem; }
+  .cval a { color:var(--white); text-decoration:none; }
+  .cval a:hover { color:var(--accent); }
+  .cform { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:28px; }
+  .cform h3 { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:1px; margin-bottom:20px; }
+  .fg { margin-bottom:13px; }
+  .fg label { display:block; font-size:.79rem; color:var(--grey); margin-bottom:5px; }
+  .fg input, .fg select, .fg textarea { width:100%; background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:6px; padding:10px 14px; color:var(--white); font-family:'Outfit',sans-serif; font-size:.87rem; outline:none; transition:border-color .2s; }
+  .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--accent); }
+  .fg select option { background:var(--card); }
+  .fg textarea { resize:vertical; min-height:92px; }
+  .submit-btn { background:var(--accent); color:#000; border:none; padding:12px 24px; border-radius:6px; font-weight:700; font-size:.87rem; cursor:pointer; font-family:'Outfit',sans-serif; width:100%; transition:opacity .2s; }
+  .submit-btn:hover { opacity:.85; }
+  .map-wrap { margin-top:32px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+  .map-wrap iframe { display:block; width:100%; height:265px; }
+
+  /* CHECKOUT */
+  #checkout { background:var(--black); padding:80px 24px; display:none; }
+  #checkout.visible { display:block; }
+  .ck-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:34px; }
+  .ck-form h2 { font-family:'Bebas Neue',sans-serif; font-size:1.85rem; letter-spacing:2px; margin-bottom:24px; }
+  .ord-sum { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; height:fit-content; }
+  .ord-sum h3 { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:1px; margin-bottom:16px; }
+  .ord-item { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:.87rem; }
+  .ord-item:last-child { border:none; }
+  .ord-total { display:flex; justify-content:space-between; margin-top:12px; font-weight:700; }
+  .ord-price { color:var(--accent); font-family:'Bebas Neue',sans-serif; font-size:1.28rem; }
+
+  /* CART */
+  .cart-drawer { position:fixed; right:-440px; top:0; height:100vh; width:420px; background:var(--card); z-index:3000; border-left:1px solid var(--border); transition:right .3s ease; display:flex; flex-direction:column; }
+  .cart-drawer.open { right:0; }
+  .cart-hdr { padding:20px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+  .cart-hdr h3 { font-family:'Bebas Neue',sans-serif; font-size:1.45rem; letter-spacing:1px; }
+  .cart-cls { background:none; border:none; color:var(--grey); font-size:1.4rem; cursor:pointer; }
+  .cart-cls:hover { color:var(--white); }
+  .cart-body { flex:1; overflow-y:auto; padding:16px; }
+  .cart-empty { text-align:center; padding:54px 20px; color:var(--grey); }
+  .citem { display:flex; gap:13px; padding:13px 0; border-bottom:1px solid var(--border); align-items:center; }
+  .citem-info { flex:1; }
+  .citem-name { font-weight:600; font-size:.87rem; margin-bottom:3px; }
+  .citem-price { color:var(--accent); font-weight:700; font-size:.87rem; }
+  .citem-rm { background:none; border:none; color:var(--grey); cursor:pointer; font-size:1.1rem; }
+  .citem-rm:hover { color:#e74c3c; }
+  .cart-ftr { padding:20px; border-top:1px solid var(--border); }
+  .cart-total { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .cart-total-lbl { color:var(--grey); }
+  .cart-total-val { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--accent); }
+
+  /* FOOTER */
+  footer { background:var(--dark); border-top:1px solid var(--border); padding:46px 24px 22px; }
+  .footer-in { max-width:1280px; margin:auto; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:38px; margin-bottom:34px; }
+  .footer-brand .brand-name { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; letter-spacing:3px; background:linear-gradient(135deg,#fff,var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .footer-brand p { color:var(--grey); font-size:.85rem; line-height:1.75; margin-top:10px; }
+  .footer-col h4 { font-weight:600; font-size:.83rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:13px; }
+  .footer-col a { display:block; color:var(--grey); text-decoration:none; font-size:.85rem; margin-bottom:7px; transition:color .2s; }
+  .footer-col a:hover { color:var(--accent); }
+  .footer-btm { border-top:1px solid var(--border); padding-top:20px; text-align:center; color:var(--grey); font-size:.79rem; }
+
+  /* WA FLOAT */
+  .wa-float { position:fixed; bottom:26px; right:26px; z-index:900; background:#25D366; color:#fff; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; font-size:1.75rem; box-shadow:0 4px 22px rgba(37,211,102,.45); text-decoration:none; transition:transform .2s; }
+  .wa-float:hover { transform:scale(1.12); }
+
+  /* TOAST */
+  .toast { position:fixed; bottom:100px; right:26px; z-index:4000; background:var(--accent); color:#000; padding:11px 21px; border-radius:8px; font-weight:600; font-size:.85rem; transform:translateY(80px); opacity:0; transition:all .3s; pointer-events:none; }
+  .toast.show { transform:translateY(0); opacity:1; }
+
+  /* RESPONSIVE */
+  @media(max-width:900px) {
+    nav { display:none; }
+    .menu-toggle { display:block; }
+    nav.mobile-open { display:flex; flex-direction:column; position:fixed; top:68px; left:0; right:0; background:var(--dark); border-bottom:1px solid var(--border); padding:16px 24px; gap:16px; z-index:999; }
+    .pgrid { grid-template-columns:repeat(2,1fr); }
+    .c-slide { height:370px; }
+    .c-arrow { width:38px; height:38px; font-size:1.4rem; }
+    .about-grid, .contact-grid, .ck-grid { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr 1fr; }
+    .modal-inner { grid-template-columns:1fr; }
+    .modal-img { border-radius:16px 16px 0 0; min-height:210px; }
+    .cart-drawer { width:100%; right:-100%; }
+  }
+  @media(max-width:600px) {
+    .footer-top { grid-template-columns:1fr; }
+    .c-slide { height:270px; }
+    .c-overlay { padding:0 18px; }
+    .c-title { font-size:2.1rem; }
+    .c-sub { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <span class="brand-name">MODERN CLOTHES</span>
+      <span class="brand-tag">Style That Defines You</span>
+    </a>
+    <nav id="mainNav">
+      <a href="#home">Home</a>
+      <a href="#mens-wear">Men's Wear</a>
+      <a href="#watches-section">Watches</a>
+      <a href="#perfumes-section">Perfumes</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Light/Dark Mode">🌙</button>
+      <button class="cart-btn" onclick="toggleCart()">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- CAROUSEL -->
+<section id="home" class="hero-section">
+  <div class="carousel-wrap" id="carouselWrap">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="c-slide">
+        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1400&q=85" alt="Formal Shirts">
+        <div class="c-overlay">
+          <div class="c-content">
+            <div class="c-badge">👔 Shirt Season</div>
+            <h1 class="c-title">FORMAL.<br>CASUAL. <span>YOU.</span></h1>
+            <p class="c-sub">Oxford, Linen & Denim Shirts — From ₹599</p>
+            <div class="c-btns">
+              <a href="#shirts-section" class="btn-gold">Shop Shirts →</a>
+              <a href="https://wa.me/919999999999" target="_blank" class="btn-outline">WhatsApp Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-slide">
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1400&q=85" alt="Watches">
+        <div class="c-overlay" style="background:linear-gradient(90deg,rgba(0,0,0,.85) 0%,rgba(13,27,42,.55) 60%,transparent 100%)">
+          <div class="c-content">
+            <div class="c-badge">⌚ Luxury Timepieces</div>
+            <h1 class="c-title">TIME TO<br><span>LOOK SHARP</span></h1>
+            <p class="c-sub">Premium watches — Analog, Digital & Smart styles</p>
+            <div class="c-btns"><a href="#watches-section" class="btn-gold">Shop Watches →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-slide">
+        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1400&q=85" alt="Men's Fashion">
+        <div class="c-overlay">
+          <div class="c-content">
+            <div class="c-badge">⚡ New Collection 2025</div>
+            <h1 class="c-title">DEFINE YOUR<br><span>STYLE</span> TODAY</h1>
+            <p class="c-sub">Premium Men's Fashion — Shirts, Jeans & More from Sugauli, Bihar</p>
+            <div class="c-btns">
+              <a href="#shirts-section" class="btn-gold">Shop Shirts →</a>
+              <a href="#jeans-section" class="btn-outline">Shop Jeans</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-slide">
+        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=1400&q=85" alt="Jeans">
+        <div class="c-overlay">
+          <div class="c-content">
+            <div class="c-badge">👖 Jeans Festival</div>
+            <h1 class="c-title">SLIM. CARGO.<br><span>BRANDED.</span></h1>
+            <p class="c-sub">All types of jeans for every vibe — Starting ₹849 only</p>
+            <div class="c-btns"><a href="#jeans-section" class="btn-gold">Explore Jeans →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-slide">
+        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1400&q=85" alt="Hoodies & Jackets">
+        <div class="c-overlay">
+          <div class="c-content">
+            <div class="c-badge">🧥 Winter Special</div>
+            <h1 class="c-title">STAY WARM<br><span>STAY STYLISH</span></h1>
+            <p class="c-sub">Premium Hoodies & Jackets — Starting ₹1,299</p>
+            <div class="c-btns"><a href="#hoodies-section" class="btn-gold">Shop Now →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="c-slide">
+        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1400&q=85" alt="Premium Perfumes">
+        <div class="c-overlay" style="background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(20,5,5,.55) 60%,transparent 100%)">
+          <div class="c-content">
+            <div class="c-badge">🧴 Signature Fragrances</div>
+            <h1 class="c-title">SMELL LIKE<br>A <span>KING</span></h1>
+            <p class="c-sub">Long-lasting EDP & EDT fragrances — From ₹899</p>
+            <div class="c-btns"><a href="#perfumes-section" class="btn-gold">Shop Perfumes →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="c-arrow c-prev" onclick="slidePrev()">&#8249;</button>
+    <button class="c-arrow c-next" onclick="slideNext()">&#8250;</button>
+    <div class="c-dots" id="carouselDots"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-lbl">Products</div></div>
+    <div class="stat"><div class="stat-num">2K+</div><div class="stat-lbl">Happy Customers</div></div>
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-lbl">Years in Business</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Authentic Quality</div></div>
+  </div>
+</div>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <div class="container">
+    <div class="cat-nav-in">
+      <a href="#jeans-section" class="cat-link"><span class="cat-ico">👖</span><span>Jeans</span></a>
+      <a href="#shirts-section" class="cat-link"><span class="cat-ico">👔</span><span>Shirts</span></a>
+      <a href="#tshirts-section" class="cat-link"><span class="cat-ico">👕</span><span>T-Shirts</span></a>
+      <a href="#hoodies-section" class="cat-link"><span class="cat-ico">🧥</span><span>Hoodies</span></a>
+      <a href="#watches-section" class="cat-link"><span class="cat-ico">⌚</span><span>Watches</span></a>
+      <a href="#perfumes-section" class="cat-link"><span class="cat-ico">🧴</span><span>Perfumes</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- MEN'S WEAR HEADING -->
+<div id="mens-wear" style="background:var(--black);padding:56px 24px 0">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-tag">— Exclusive Collection —</div>
+      <h2 class="sec-title">MEN'S WEAR</h2>
+      <p class="sec-desc">Curated fashion for the modern Indian man — style, comfort & value</p>
+    </div>
+  </div>
+</div>
+
+<!-- JEANS -->
+<section id="jeans-section" style="background:var(--black);padding:34px 24px 60px">
+  <div class="container">
+    <div class="sub-hdr"><div class="sub-left">
+      <div class="sub-ico">👖</div>
+      <div><div class="sec-tag" style="text-align:left">Men's Jeans</div><div class="sub-title">JEANS COLLECTION</div><div class="sub-desc">Slim, Cargo, Branded & more — jeans for every vibe</div></div>
+    </div></div>
+    <div class="sub-label"><span>Slim Fit Jeans</span></div>
+    <div class="pgrid" id="slim-jeans-grid"></div>
+    <div class="sub-label mt-40"><span>Cargo Jeans</span></div>
+    <div class="pgrid" id="cargo-jeans-grid"></div>
+    <div class="sub-label mt-40"><span>Branded Jeans</span></div>
+    <div class="pgrid" id="branded-jeans-grid"></div>
+  </div>
+</section>
+
+<!-- SHIRTS -->
+<section id="shirts-section" style="background:var(--dark);padding:58px 24px">
+  <div class="container">
+    <div class="sub-hdr"><div class="sub-left">
+      <div class="sub-ico">👔</div>
+      <div><div class="sec-tag" style="text-align:left">Men's Shirts</div><div class="sub-title">SHIRTS COLLECTION</div><div class="sub-desc">Formal, casual & printed shirts for every occasion</div></div>
+    </div></div>
+    <div class="sub-label"><span>Formal Shirts</span></div>
+    <div class="pgrid" id="formal-shirts-grid"></div>
+    <div class="sub-label mt-40"><span>Casual & Printed Shirts</span></div>
+    <div class="pgrid" id="casual-shirts-grid"></div>
+  </div>
+</section>
+
+<!-- T-SHIRTS -->
+<section id="tshirts-section" style="background:var(--black);padding:58px 24px">
+  <div class="container">
+    <div class="sub-hdr"><div class="sub-left">
+      <div class="sub-ico">👕</div>
+      <div><div class="sec-tag" style="text-align:left">Men's T-Shirts</div><div class="sub-title">T-SHIRTS COLLECTION</div><div class="sub-desc">Polo, graphic, oversized & plain tees for every day</div></div>
+    </div></div>
+    <div class="pgrid" id="tshirts-grid"></div>
+  </div>
+</section>
+
+<!-- HOODIES -->
+<section id="hoodies-section" style="background:var(--dark);padding:58px 24px">
+  <div class="container">
+    <div class="sub-hdr"><div class="sub-left">
+      <div class="sub-ico">🧥</div>
+      <div><div class="sec-tag" style="text-align:left">Men's Hoodies & Jackets</div><div class="sub-title">HOODIES & JACKETS</div><div class="sub-desc">Stay warm, stay stylish this season</div></div>
+    </div></div>
+    <div class="pgrid" id="hoodies-grid"></div>
+  </div>
+</section>
+
+<!-- WATCHES -->
+<section id="watches-section" style="background:var(--navy);padding:58px 24px">
+  <div class="container">
+    <div class="sub-hdr"><div class="sub-left">
+      <div class="sub-ico">⌚</div>
+      <div><div class="sec-tag" style="text-align:left">Men's Watches</div><div class="sub-title">WATCHES COLLECTION</div><div class="sub-desc">Luxury, sports & vintage — timepieces that speak</div></div>
+    </div></div>
+    <div class="sub-label"><span>Luxury & Analog Watches</span></div>
+    <div class="pgrid" id="luxury-watches-grid"></div>
+    <div class="sub-label mt-40"><span>Sports & Digital Watches</span></div>
+    <div class="pgrid" id="sports-watches-grid"></div>
+  </div>
+</section>
+
+<!-- PERFUMES -->
+<section id="perfumes-section" style="background:var(--black);padding:58px 24px">
+  <div class="container">
+    <div class="sub-hdr"><div class="sub-left">
+      <div class="sub-ico">🧴</div>
+      <div><div class="sec-tag" style="text-align:left">Men's Perfumes</div><div class="sub-title">PERFUMES COLLECTION</div><div class="sub-desc">Long-lasting fragrances for every mood</div></div>
+    </div></div>
+    <div class="pgrid" id="perfumes-grid"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-ico">👑</div>
+        <div class="about-owner">RAJ</div>
+        <div class="about-loc">📍 Sugauli, Bihar, India</div>
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);color:var(--grey);font-size:.83rem;line-height:1.9">
+          Passionate about men's fashion<br>Serving quality since 2022<br>
+          <span style="color:var(--accent)">Modern Clothes</span> — your local fashion brand
+        </div>
+      </div>
+      <div class="about-txt">
+        <div class="sec-tag">— Our Story —</div>
+        <h2>ABOUT<br>MODERN CLOTHES</h2>
+        <p>Founded by <span class="hl">Raj</span>, Modern Clothes is Sugauli's premier destination for men's fashion. We believe every man deserves to look and feel his best, no matter the occasion.</p>
+        <p>Located in the heart of <span class="hl">Sugauli, Bihar</span>, our store brings the latest trends in men's clothing, accessories, and fragrances directly to you — at prices that make sense.</p>
+        <p>From crisp shirts to premium watches, from jeans to signature perfumes — we stock it all. Our commitment: <span class="hl">quality that lasts, style that speaks.</span></p>
+        <div style="margin-top:24px"><a href="https://wa.me/919999999999" target="_blank" class="btn-gold">Chat With Raj 💬</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-tag">— Get In Touch —</div>
+      <h2 class="sec-title">CONTACT US</h2>
+      <p class="sec-desc">We're here to help. Reach us anytime.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cards">
+        <div class="ccard"><div class="cico">📞</div><div><div class="clbl">Phone</div><div class="cval"><a href="tel:+919999999999">+91 99999 99999</a></div></div></div>
+        <div class="ccard"><div class="cico">💬</div><div><div class="clbl">WhatsApp</div><div class="cval"><a href="https://wa.me/919999999999" target="_blank">Chat on WhatsApp</a></div></div></div>
+        <div class="ccard"><div class="cico">📍</div><div><div class="clbl">Location</div><div class="cval">Sugauli, East Champaran<br>Bihar – 845456, India</div></div></div>
+        <div class="ccard"><div class="cico">🕐</div><div><div class="clbl">Store Hours</div><div class="cval">Mon–Sat: 9AM – 9PM<br>Sunday: 10AM – 7PM</div></div></div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56869.14!2d84.7491!3d26.7572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3993e2b849cf6ca9%3A0x3c4b7b1d3e00de13!2sSugauli%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="cform">
+        <h3>SEND A MESSAGE</h3>
+        <form id="contactForm" action="https://formspree.io/f/mlgwydzo" method="POST">
+          <div class="fg">
+            <label>Your Name</label>
+            <input type="text" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="fg">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="fg">
+            <label>Interested In</label>
+            <select name="category" required>
+              <option value="">Select Category</option>
+              <option>Slim Fit Jeans</option><option>Cargo Jeans</option><option>Branded Jeans</option>
+              <option>Formal Shirts</option><option>Casual Shirts</option><option>T-Shirts</option>
+              <option>Hoodies & Jackets</option><option>Watches</option><option>Perfumes</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell us what you're looking for..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">📧 Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKOUT -->
+<section id="checkout">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-tag">— Almost There —</div>
+      <h2 class="sec-title">CHECKOUT</h2>
+    </div>
+    <div class="ck-grid">
+      <div class="ck-form">
+        <h2>Delivery Details</h2>
+        <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name" id="ckName"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="ckPhone"></div>
+        <div class="fg"><label>Full Address</label><textarea placeholder="House no., Street, Village/City..." id="ckAddress"></textarea></div>
+        <div class="fg"><label>PIN Code</label><input type="text" placeholder="6-digit PIN code" id="ckPin"></div>
+        <div class="fg"><label>Payment Method</label>
+          <select id="ckPay"><option>Cash on Delivery (COD)</option><option>UPI / PhonePe / GPay</option><option>Bank Transfer</option></select>
+        </div>
+        <button class="submit-btn" onclick="placeOrder()">✅ Place Order via WhatsApp</button>
+      </div>
+      <div class="ord-sum">
+        <h3>ORDER SUMMARY</h3>
+        <div id="ckItems"></div>
+        <div class="ord-total"><span>Total</span><span class="ord-price" id="ckTotal">₹0</span></div>
+        <div style="margin-top:13px;padding:11px;background:rgba(232,160,32,.07);border:1px solid rgba(232,160,32,.2);border-radius:6px;font-size:.79rem;color:var(--grey)">
+          Order confirmed via WhatsApp. Raj will contact you shortly.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-in">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">MODERN CLOTHES</div>
+        <p>Your trusted men's fashion destination in Sugauli, Bihar. Quality clothes, watches & perfumes for the modern man.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a><a href="#mens-wear">Men's Wear</a><a href="#about">About Us</a><a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <a href="#jeans-section">Jeans</a><a href="#shirts-section">Shirts</a><a href="#watches-section">Watches</a><a href="#perfumes-section">Perfumes</a>
+      </div>
+    </div>
+    <div class="footer-btm">© 2025 Modern Clothes, Sugauli, Bihar | Owned by Raj | All rights reserved</div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919999999999?text=Hi%20Raj!%20I%20want%20to%20shop%20from%20Modern%20Clothes" target="_blank" class="wa-float">💬</a>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-hdr"><h3>YOUR CART</h3><button class="cart-cls" onclick="toggleCart()">✕</button></div>
+  <div class="cart-body" id="cartBody"><div class="cart-empty"><div style="font-size:3rem;margin-bottom:10px">🛒</div><p>Your cart is empty</p></div></div>
+  <div class="cart-ftr" id="cartFtr" style="display:none">
+    <div class="cart-total"><span class="cart-total-lbl">Total</span><span class="cart-total-val" id="cartTotal">₹0</span></div>
+    <button class="btn-gold" style="width:100%;padding:13px;border-radius:6px;font-size:.9rem" onclick="goToCheckout()">Proceed to Checkout</button>
+    <br><br>
+    <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20place%20an%20order" target="_blank" class="btn-green">💬 Order via WhatsApp</a>
+  </div>
+</div>
+
+<!-- Product Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeMBg(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner">
+      <div class="modal-img" id="mImg"></div>
+      <div class="modal-det">
+        <div class="modal-cat" id="mCat"></div>
+        <div class="modal-name" id="mName"></div>
+        <div class="modal-price" id="mPrice"></div>
+        <div class="modal-desc" id="mDesc"></div>
+        <div class="modal-btns">
+          <button class="btn-gold" style="width:100%;padding:13px;border-radius:6px" id="mAddCart">🛒 Add to Cart</button>
+          <a class="btn-green" id="mWA" target="_blank">💬 Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== THEME TOGGLE ===================== */
+function toggleTheme() {
+  const body = document.body;
+  const themeToggle = document.getElementById('themeToggle');
+  
+  body.classList.toggle('light-mode');
+  
+  // Save preference to localStorage
+  if (body.classList.contains('light-mode')) {
+    localStorage.setItem('theme', 'light');
+    themeToggle.textContent = '☀️';
+    themeToggle.title = 'Switch to Dark Mode';
+  } else {
+    localStorage.setItem('theme', 'dark');
+    themeToggle.textContent = '🌙';
+    themeToggle.title = 'Switch to Light Mode';
+  }
+}
+
+// Load theme preference on page load
+window.addEventListener('DOMContentLoaded', ()=>{
+  const savedTheme = localStorage.getItem('theme');
+  const themeToggle = document.getElementById('themeToggle');
+  
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeToggle.textContent = '☀️';
+    themeToggle.title = 'Switch to Dark Mode';
+  }
+});
+
+/* ===================== PRODUCTS ===================== */
+const allP = {
+  slimJeans:[
+    {id:1, cat:'Slim Jeans', name:'Classic Dark Slim Jeans', img:'https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80', price:999, old:1799, badge:'Bestseller', desc:'Dark wash slim-fit denim with stretch fabric for all-day comfort. Perfect for casual & semi-formal outings.'},
+    {id:2, cat:'Slim Jeans', name:'Black Slim Fit Denim', img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80', price:1099, old:1999, badge:'New', desc:'Jet black slim jeans with tapered leg — sharp, minimal, modern look for everyday wear.'},
+    {id:3, cat:'Slim Jeans', name:'Light Blue Stretch Jeans', img:'https://images.unsplash.com/photo-1604176354204-9268737828e4?w=600&q=80', price:849, old:1499, badge:'', desc:'Light blue everyday slim jeans. Comfortable stretch fabric with a clean finish.'},
+    {id:4, cat:'Slim Jeans', name:'Indigo Raw Denim Slim', img:'https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600&q=80', price:1149, old:1999, badge:'New', desc:'Raw indigo slim-fit denim with selvedge finish — premium quality for the denim connoisseur.'},
+    {id:5, cat:'Slim Jeans', name:'Grey Slim Taper Jeans', img:'https://images.unsplash.com/photo-1598522325074-042db73aa4e6?w=600&q=80', price:949, old:1699, badge:'Popular', desc:'Heather grey tapered slim jeans — versatile for office or casual outings.'},
+    {id:6, cat:'Slim Jeans', name:'Mid-Rise Slim Denim', img:'https://images.unsplash.com/photo-1555689502-c4b22d76c56f?w=600&q=80', price:899, old:1599, badge:'', desc:'Classic mid-rise slim denim with 2% elastane for perfect stretch and shape retention.'},
+    {id:7, cat:'Slim Jeans', name:'Acid Wash Slim Jeans', img:'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&q=80', price:1049, old:1799, badge:'Trending', desc:'Bold acid wash finish slim jeans — edgy street style for those who dare to stand out.'},
+    {id:8, cat:'Slim Jeans', name:'Vintage Faded Slim Cut', img:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80', price:999, old:1699, badge:'', desc:'Vintage-faded slim cut with subtle distressing — retro vibes with modern fit.'},
+  ],
+  cargoJeans:[
+    {id:9, cat:'Cargo Jeans', name:'Military Cargo Denim', img:'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80', price:1299, old:2199, badge:'Trending', desc:'6-pocket cargo jeans with utility loops and reinforced stitching. Rugged yet stylish.'},
+    {id:10, cat:'Cargo Jeans', name:'Dark Cargo Jogger Jeans', img:'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80', price:1149, old:1999, badge:'Popular', desc:'Cargo-style jogger denim with elastic cuffs — perfect street-ready comfort.'},
+    {id:11, cat:'Cargo Jeans', name:'Khaki Combat Cargo Jeans', img:'https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80', price:1199, old:2099, badge:'', desc:'Multi-pocket combat cargo — bold style meets everyday utility.'},
+    {id:12, cat:'Cargo Jeans', name:'Black Tactical Cargo', img:'https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=600&q=80', price:1349, old:2299, badge:'New', desc:'Black tactical cargo denim with zip pockets — urban warrior style for everyday missions.'},
+    {id:13, cat:'Cargo Jeans', name:'Relaxed Cargo Wide Leg', img:'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600&q=80', price:1249, old:2099, badge:'', desc:'Wide-leg cargo jeans with relaxed fit — comfort-first style that still turns heads.'},
+    {id:14, cat:'Cargo Jeans', name:'Olive Utility Cargo', img:'https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600&q=80', price:1299, old:2199, badge:'Popular', desc:'Olive green utility cargo with 8 pockets — the ultimate functional streetwear denim.'},
+    {id:15, cat:'Cargo Jeans', name:'Stone Wash Cargo Denim', img:'https://images.unsplash.com/photo-1604176354204-9268737828e4?w=600&q=80', price:1199, old:1999, badge:'', desc:'Stone-washed cargo denim in classic blue — casual and comfortable for all-day wear.'},
+    {id:16, cat:'Cargo Jeans', name:'Distressed Cargo Slim', img:'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&q=80', price:1399, old:2399, badge:'Exclusive', desc:'Slim-fit distressed cargo jeans — ripped details combined with utility pockets for maximum edge.'},
+  ],
+  brandedJeans:[
+    {id:17, cat:'Branded Jeans', name:'Premium Branded Slim Denim', img:'https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=600&q=80', price:2499, old:3999, badge:'Premium', desc:'Branded premium denim with signature detailing. Long-lasting fabric, superior cut.'},
+    {id:18, cat:'Branded Jeans', name:'Designer Distressed Jeans', img:'https://images.unsplash.com/photo-1604176354204-9268737828e4?w=600&q=80', price:2199, old:3499, badge:'Exclusive', desc:'Ripped distressed jeans — bold urban look with top-quality wash finish.'},
+    {id:19, cat:'Branded Jeans', name:'Luxury Straight Cut Jeans', img:'https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80', price:2799, old:4499, badge:'', desc:'Luxury straight-leg jeans with signature button fly. Timeless classic style.'},
+    {id:20, cat:'Branded Jeans', name:'Signature Dark Wash Jeans', img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80', price:2699, old:4299, badge:'New', desc:'Premium dark wash with branded rivets and custom patch — a collector-worthy piece of denim.'},
+    {id:21, cat:'Branded Jeans', name:'Elite Tapered Denim', img:'https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600&q=80', price:2999, old:4799, badge:'Premium', desc:'Elite tapered denim from a premium line — superior Japanese cotton blend for connoisseurs.'},
+    {id:22, cat:'Branded Jeans', name:'Heritage Boot Cut Jeans', img:'https://images.unsplash.com/photo-1598522325074-042db73aa4e6?w=600&q=80', price:2399, old:3899, badge:'', desc:'Classic heritage boot-cut jeans with vintage branding — a timeless silhouette reimagined.'},
+    {id:23, cat:'Branded Jeans', name:'Couture Slim Branded', img:'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80', price:3199, old:4999, badge:'Top Pick', desc:'Fashion-forward couture slim jeans with embroidered logo — wear art, not just denim.'},
+    {id:24, cat:'Branded Jeans', name:'Prestige Relaxed Fit', img:'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80', price:2599, old:4199, badge:'', desc:'Prestige-line relaxed-fit branded jeans — luxury comfort for all-day confidence.'},
+  ],
+  formalShirts:[
+    {id:25, cat:'Formal Shirts', name:'Classic Oxford Shirt', img:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80', price:799, old:1299, badge:'Bestseller', desc:'Premium cotton Oxford shirt for office and formal occasions. Crisp collar, tailored fit.'},
+    {id:26, cat:'Formal Shirts', name:'White Dress Shirt', img:'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=600&q=80', price:699, old:1199, badge:'', desc:'Classic white dress shirt — a wardrobe essential. Slim fit, wrinkle-resistant fabric.'},
+    {id:27, cat:'Formal Shirts', name:'Navy Blue Formal Shirt', img:'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=600&q=80', price:749, old:1299, badge:'New', desc:'Navy blue slim-fit formal shirt — perfect for office meetings and evening parties.'},
+    {id:28, cat:'Formal Shirts', name:'Charcoal Grey Formal', img:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80', price:849, old:1399, badge:'Popular', desc:'Charcoal grey formal shirt with French placket — sophisticated choice for business meetings.'},
+    {id:29, cat:'Formal Shirts', name:'Light Blue Pinstripe Shirt', img:'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&q=80', price:899, old:1499, badge:'', desc:'Light blue pinstripe formal shirt — subtle pattern adds personality while keeping it professional.'},
+    {id:30, cat:'Formal Shirts', name:'Black Satin Formal Shirt', img:'https://images.unsplash.com/photo-1588359348347-9bc6cbbb689e?w=600&q=80', price:999, old:1699, badge:'Premium', desc:'Black satin-finish formal shirt — ultra-smooth fabric ideal for parties and upscale dinners.'},
+    {id:31, cat:'Formal Shirts', name:'Ivory Linen Dress Shirt', img:'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80', price:799, old:1299, badge:'Summer', desc:'Ivory linen dress shirt — breathable and stylish for formal summer occasions.'},
+    {id:32, cat:'Formal Shirts', name:'Check Pattern Formal Shirt', img:'https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=600&q=80', price:849, old:1399, badge:'', desc:'Classic windowpane check formal shirt — structured fit with subtle pattern sophistication.'},
+  ],
+  casualShirts:[
+    {id:33, cat:'Casual Shirts', name:'Floral Printed Shirt', img:'https://images.unsplash.com/photo-1588359348347-9bc6cbbb689e?w=600&q=80', price:599, old:999, badge:'Trending', desc:'Vibrant floral printed shirt for vacations and casual outings. Light, breathable fabric.'},
+    {id:34, cat:'Casual Shirts', name:'Denim Casual Shirt', img:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80', price:849, old:1499, badge:'', desc:'Rugged denim shirt with chest pockets — great for layering or solo wear.'},
+    {id:35, cat:'Casual Shirts', name:'Linen Summer Shirt', img:'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&q=80', price:649, old:1099, badge:'Summer Pick', desc:'Breathable linen shirt for hot Indian summers. Relaxed fit, looks great untucked.'},
+    {id:36, cat:'Casual Shirts', name:'Tie-Dye Casual Shirt', img:'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600&q=80', price:549, old:899, badge:'New', desc:'Boho tie-dye shirt with relaxed silhouette — festival and beach-ready style statement.'},
+    {id:37, cat:'Casual Shirts', name:'Stripe Half-Sleeve Shirt', img:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80', price:599, old:999, badge:'Popular', desc:'Bold horizontal stripe half-sleeve shirt — nautical vibes for casual weekends.'},
+    {id:38, cat:'Casual Shirts', name:'Geometric Print Shirt', img:'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=600&q=80', price:649, old:1099, badge:'', desc:'Eye-catching geometric print shirt — vibrant pattern for confident men who love colour.'},
+    {id:39, cat:'Casual Shirts', name:'Bamboo Fibre Casual Shirt', img:'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=600&q=80', price:749, old:1299, badge:'Eco', desc:'Eco-friendly bamboo fibre casual shirt — ultra-soft, moisture-wicking for tropical weather.'},
+    {id:40, cat:'Casual Shirts', name:'Tropical Palm Shirt', img:'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80', price:599, old:999, badge:'Trending', desc:'Tropical palm print Cuban collar shirt — vacation-ready style for the bold and adventurous.'},
+  ],
+  tshirts:[
+    {id:41, cat:'T-Shirts', name:'Polo T-Shirt – Navy', img:'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&q=80', price:499, old:899, badge:'New', desc:'Classic polo tee in navy — ideal for college, office or daily casual wear.'},
+    {id:42, cat:'T-Shirts', name:'Graphic Oversized Tee', img:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80', price:399, old:699, badge:'Trending', desc:'Bold graphic oversized tee — 100% cotton, urban streetwear style for any occasion.'},
+    {id:43, cat:'T-Shirts', name:'Plain Round Neck Tee', img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80', price:299, old:499, badge:'', desc:'Solid colour round neck tee in multiple shades. Simple, comfortable daily essential.'},
+    {id:44, cat:'T-Shirts', name:'Half-Sleeve Henley Tee', img:'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600&q=80', price:449, old:799, badge:'Popular', desc:'Henley-collar tee with button placket. Stylish and breathable for warm weather.'},
+    {id:45, cat:'T-Shirts', name:'Drop Shoulder Oversized', img:'https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?w=600&q=80', price:499, old:849, badge:'Trending', desc:'Drop-shoulder oversized tee with boxy fit — the go-to for laid-back streetwear looks.'},
+    {id:46, cat:'T-Shirts', name:'Striped V-Neck Tee', img:'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=80', price:349, old:599, badge:'', desc:'Classic striped V-neck tee — timeless style, super comfortable for daily wear.'},
+    {id:47, cat:'T-Shirts', name:'Premium Pique Polo', img:'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&q=80', price:599, old:999, badge:'Premium', desc:'Premium piqué polo with embroidered badge — smart casual at its finest for any occasion.'},
+    {id:48, cat:'T-Shirts', name:'Abstract Print Tee', img:'https://images.unsplash.com/photo-1554568218-0f1715e72254?w=600&q=80', price:449, old:749, badge:'New', desc:'Abstract art print tee — wearable art for those who express themselves through fashion.'},
+  ],
+  hoodies:[
+    {id:49, cat:'Hoodies', name:'Hoodie – Midnight Black', img:'https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600&q=80', price:1299, old:2199, badge:'Premium', desc:'Soft-fleece pullover hoodie with kangaroo pocket. Warm, stylish, great for winters.'},
+    {id:50, cat:'Hoodies', name:'Zip-Up Hoodie – Grey', img:'https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600&q=80', price:1499, old:2499, badge:'', desc:'Full-zip hoodie in heather grey. Versatile with soft inner lining — looks great anywhere.'},
+    {id:51, cat:'Jackets', name:'Quilted Winter Jacket', img:'https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=600&q=80', price:1999, old:3499, badge:'Winter Special', desc:'Puffer quilted jacket — lightweight warmth ideal for cold Bihar winters.'},
+    {id:52, cat:'Hoodies', name:'Oversized Streetwear Hoodie', img:'https://images.unsplash.com/photo-1590330297626-d7aff25a0431?w=600&q=80', price:1399, old:2299, badge:'Trending', desc:'Oversized drop-shoulder hoodie with bold print — the statement piece for streetwear lovers.'},
+    {id:53, cat:'Hoodies', name:'Colourblock Hoodie', img:'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600&q=80', price:1349, old:2199, badge:'New', desc:'Two-tone colourblock hoodie with contrast stitching — modern and eye-catching winter staple.'},
+    {id:54, cat:'Jackets', name:'Denim Trucker Jacket', img:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80', price:2299, old:3699, badge:'Popular', desc:'Classic denim trucker jacket — a timeless layering piece that goes with everything.'},
+    {id:55, cat:'Jackets', name:'Sherpa Lined Jacket', img:'https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=600&q=80', price:2499, old:3999, badge:'Winter Pick', desc:'Sherpa-lined warm jacket — plush interior keeps you cozy in the coldest months.'},
+    {id:56, cat:'Jackets', name:'Bomber Jacket – Olive', img:'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80', price:2199, old:3499, badge:'Exclusive', desc:'Olive green bomber jacket with ribbed cuffs — street-ready style meets military inspiration.'},
+  ],
+  luxuryWatches:[
+    {id:57, cat:'Luxury Watches', name:'Executive Chronograph', img:'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&q=80', price:3499, old:5999, badge:'Premium', desc:'Bold chronograph with stainless steel case, mineral glass & genuine leather strap. Water resistant 30m.'},
+    {id:58, cat:'Luxury Watches', name:'Vintage Analog Watch', img:'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=600&q=80', price:2199, old:3799, badge:'', desc:'Classic round dial vintage analog watch — slim profile, mesh bracelet, timeless elegance.'},
+    {id:59, cat:'Luxury Watches', name:'Gold Dial Dress Watch', img:'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&q=80', price:2799, old:4500, badge:'Exclusive', desc:'Gold-toned dial dress watch with Roman numerals. Perfect for weddings and formal events.'},
+    {id:60, cat:'Luxury Watches', name:'Rose Gold Skeleton Watch', img:'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&q=80', price:3999, old:6499, badge:'Luxury', desc:'Rose gold skeleton automatic watch — visible movement through sapphire glass for the watch enthusiast.'},
+    {id:61, cat:'Luxury Watches', name:'Silver Minimalist Watch', img:'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=600&q=80', price:1999, old:3299, badge:'Popular', desc:'Ultra-thin silver minimalist dress watch — understated elegance for the modern gentleman.'},
+    {id:62, cat:'Luxury Watches', name:'Moonphase Luxury Watch', img:'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600&q=80', price:4499, old:7299, badge:'Premium', desc:'Moonphase complication luxury watch — intricate display with premium leather strap and mother-of-pearl dial.'},
+    {id:63, cat:'Luxury Watches', name:'Blue Dial Steel Watch', img:'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600&q=80', price:2599, old:4199, badge:'New', desc:'Striking blue sunburst dial with stainless steel bracelet — bold elegance that commands attention.'},
+    {id:64, cat:'Luxury Watches', name:'Classic Tonneau Watch', img:'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=600&q=80', price:3199, old:5199, badge:'', desc:'Tonneau-shaped case luxury dress watch with crocodile-pattern strap — French elegance meets Indian flair.'},
+  ],
+  sportsWatches:[
+    {id:65, cat:'Sports Watches', name:'Sports Digital Watch', img:'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600&q=80', price:1299, old:2499, badge:'Popular', desc:'Multi-function digital with backlight, stopwatch & alarm. Durable rubber strap for active men.'},
+    {id:66, cat:'Sports Watches', name:'Tactical Military Watch', img:'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=600&q=80', price:1799, old:2999, badge:'New', desc:'Rugged military-style sport watch — shock resistant, 50m water resistant, dual time zone.'},
+    {id:67, cat:'Sports Watches', name:'Smart Fitness Watch', img:'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=600&q=80', price:2499, old:3999, badge:'Smart', desc:'Fitness tracker with heart rate monitor, step counter and sleep tracker. Sleek & modern.'},
+    {id:68, cat:'Sports Watches', name:'Diver Sport Watch 50ATM', img:'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=600&q=80', price:2199, old:3699, badge:'Premium', desc:'50ATM water-resistant diver watch with unidirectional bezel — built for underwater adventures.'},
+    {id:69, cat:'Sports Watches', name:'Solar Powered Sport Watch', img:'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=600&q=80', price:1999, old:3299, badge:'Eco', desc:'Solar-powered sport watch with perpetual calendar — never run out of battery again.'},
+    {id:70, cat:'Sports Watches', name:'GPS Running Watch', img:'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600&q=80', price:2999, old:4799, badge:'Smart', desc:'GPS-enabled running watch with pace tracker, VO2 max and training load analysis.'},
+    {id:71, cat:'Sports Watches', name:'Chronograph Sport Watch', img:'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=600&q=80', price:1699, old:2799, badge:'Popular', desc:'Bold chronograph sport watch with tachymeter bezel — measure speed while looking spectacular.'},
+    {id:72, cat:'Sports Watches', name:'Dual Time Zone Watch', img:'https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&q=80', price:1849, old:3099, badge:'New', desc:'Dual time zone sports watch — ideal for travellers and those with international connections.'},
+  ],
+  perfumes:[
+    {id:73, cat:'Perfumes', name:'Black Oud Eau de Parfum', img:'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80', price:1799, old:2999, badge:'Bestseller', desc:'Rich woody oud — sandalwood, musk & dark spices. 100ml EDP with 12+ hour lasting power.'},
+    {id:74, cat:'Perfumes', name:'Ocean Blue EDT', img:'https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=600&q=80', price:999, old:1799, badge:'New', desc:'Fresh aquatic fragrance — sea salt, citrus & white musk. Perfect for daytime & summer.'},
+    {id:75, cat:'Perfumes', name:'Royal Tobacco Perfume', img:'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80', price:2299, old:3999, badge:'Premium', desc:'Sophisticated tobacco, vanilla & amber blend. A bold masculine scent for evenings.'},
+    {id:76, cat:'Perfumes', name:'Citrus Burst Sport EDT', img:'https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=600&q=80', price:899, old:1499, badge:'', desc:'Energizing citrus & cedarwood sport fragrance — fresh all day for gym & work.'},
+    {id:77, cat:'Perfumes', name:'Midnight Rose EDP', img:'https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=600&q=80', price:1599, old:2699, badge:'Romantic', desc:'Dark rose, patchouli & vetiver — a sophisticated evening fragrance that lingers beautifully.'},
+    {id:78, cat:'Perfumes', name:'Cedar & Sandalwood EDP', img:'https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=600&q=80', price:1399, old:2399, badge:'Popular', desc:'Warm cedar and creamy sandalwood — a grounding, masculine woody scent for everyday wear.'},
+    {id:79, cat:'Perfumes', name:'Spiced Vanilla Noir', img:'https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=600&q=80', price:1699, old:2899, badge:'New', desc:'Spiced vanilla with dark tonka and incense — a sensual oriental fragrance for confident men.'},
+    {id:80, cat:'Perfumes', name:'Fresh Fougère EDT', img:'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80', price:799, old:1399, badge:'', desc:'Classic fougère accord — lavender, oakmoss & coumarin. Timeless fresh scent for everyday elegance.'},
+  ],
+};
+
+const flat = Object.values(allP).flat();
+let cart = [];
+
+/* ===================== RENDER ===================== */
+function rGrid(id, list) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = list.map(p => `
+    <div class="pcard" onclick="openModal(${p.id})">
+      <div class="pimg">
+        ${p.badge ? `<div class="pbadge">${p.badge}</div>` : ''}
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.style.background='#1a1f2a'">
+      </div>
+      <div class="pinfo">
+        <div class="pname">${p.name}</div>
+        <div class="pdesc">${p.desc.substring(0,70)}...</div>
+        <div class="pfooter">
+          <div class="pprice">₹${p.price.toLocaleString()}${p.old?`<span>₹${p.old.toLocaleString()}</span>`:''}</div>
+          <button class="padd" onclick="event.stopPropagation();addToCart(${p.id})">+ Add</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function initGrids() {
+  rGrid('slim-jeans-grid',     allP.slimJeans);
+  rGrid('cargo-jeans-grid',    allP.cargoJeans);
+  rGrid('branded-jeans-grid',  allP.brandedJeans);
+  rGrid('formal-shirts-grid',  allP.formalShirts);
+  rGrid('casual-shirts-grid',  allP.casualShirts);
+  rGrid('tshirts-grid',        allP.tshirts);
+  rGrid('hoodies-grid',        allP.hoodies);
+  rGrid('luxury-watches-grid', allP.luxuryWatches);
+  rGrid('sports-watches-grid', allP.sportsWatches);
+  rGrid('perfumes-grid',       allP.perfumes);
+}
+
+/* ===================== MODAL ===================== */
+function openModal(id) {
+  const p = flat.find(x => x.id === id);
+  document.getElementById('mImg').innerHTML   = `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;min-height:340px;object-fit:cover">`;
+  document.getElementById('mCat').textContent = p.cat;
+  document.getElementById('mName').textContent = p.name;
+  document.getElementById('mPrice').innerHTML  = `₹${p.price.toLocaleString()}${p.old?` <span style="font-family:Outfit;font-size:.93rem;color:var(--grey);text-decoration:line-through;margin-left:7px">₹${p.old.toLocaleString()}</span>`:''}`;
+  document.getElementById('mDesc').textContent = p.desc;
+  document.getElementById('mAddCart').onclick  = () => { addToCart(id); closeModal(); };
+  document.getElementById('mWA').href = `https://wa.me/919999999999?text=Hi%20Raj!%20I%20want%20to%20order%20${encodeURIComponent(p.name)}%20for%20Rs.${p.price}`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+function closeMBg(e) { if (e.target===document.getElementById('modalOverlay')) closeModal(); }
+
+/* ===================== CART ===================== */
+function addToCart(id) {
+  const p = flat.find(x => x.id === id);
+  const ex = cart.find(c => c.id === id);
+  if (ex) ex.qty++; else cart.push({...p, qty:1});
+  updateCart();
+  showToast(`✅ ${p.name} added!`);
+}
+
+function removeFromCart(id) { cart = cart.filter(c => c.id !== id); updateCart(); }
+
+function updateCart() {
+  const count = cart.reduce((a,c)=>a+c.qty,0);
+  document.getElementById('cartCount').textContent = count;
+  const body = document.getElementById('cartBody');
+  const ftr  = document.getElementById('cartFtr');
+  if (!cart.length) {
+    body.innerHTML = '<div class="cart-empty"><div style="font-size:3rem;margin-bottom:10px">🛒</div><p>Your cart is empty</p></div>';
+    ftr.style.display = 'none';
+  } else {
+    body.innerHTML = cart.map(c=>`
+      <div class="citem">
+        <div style="width:52px;height:52px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#0d1117">
+          <img src="${c.img}" alt="${c.name}" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="citem-info">
+          <div class="citem-name">${c.name}</div>
+          <div class="citem-price">₹${c.price.toLocaleString()} × ${c.qty}</div>
+        </div>
+        <button class="citem-rm" onclick="removeFromCart(${c.id})">🗑</button>
+      </div>`).join('');
+    const total = cart.reduce((a,c)=>a+c.price*c.qty,0);
+    document.getElementById('cartTotal').textContent = `₹${total.toLocaleString()}`;
+    ftr.style.display = 'block';
+  }
+}
+
+function toggleCart() { document.getElementById('cartDrawer').classList.toggle('open'); }
+
+function goToCheckout() {
+  toggleCart();
+  const sec = document.getElementById('checkout');
+  sec.classList.add('visible');
+  sec.scrollIntoView({behavior:'smooth'});
+  const total = cart.reduce((a,c)=>a+c.price*c.qty,0);
+  document.getElementById('ckItems').innerHTML = cart.map(c=>`<div class="ord-item"><span>${c.name} ×${c.qty}</span><span>₹${(c.price*c.qty).toLocaleString()}</span></div>`).join('');
+  document.getElementById('ckTotal').textContent = `₹${total.toLocaleString()}`;
+}
+
+function placeOrder() {
+  const name  = document.getElementById('ckName').value||'Customer';
+  const phone = document.getElementById('ckPhone').value;
+  const addr  = document.getElementById('ckAddress').value;
+  const pin   = document.getElementById('ckPin').value;
+  const pay   = document.getElementById('ckPay').value;
+  const items = cart.map(c=>`${c.name} x${c.qty}=Rs.${c.price*c.qty}`).join('%0A');
+  const total = cart.reduce((a,c)=>a+c.price*c.qty,0);
+  window.open(`https://wa.me/919999999999?text=Hi%20Raj!%20New%20Order:%0AName:%20${encodeURIComponent(name)}%0APhone:%20${phone}%0AAddr:%20${encodeURIComponent(addr)}%20PIN:${pin}%0APay:%20${encodeURIComponent(pay)}%0A%0AItems:%0A${items}%0A%0ATotal:%20Rs.${total}%0APlease%20confirm!`,'_blank');
+}
+
+/* ===================== CONTACT ===================== */
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      const submitBtn = contactForm.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '⏳ Sending...';
+      submitBtn.disabled = true;
+      
+      // Submit to Formspree
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          showToast('✅ Message sent successfully! We will contact you soon.');
+          contactForm.reset();
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        } else {
+          showToast('❌ Error sending message. Please try again.');
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      }).catch(error => {
+        showToast('❌ Error sending message. Please try again.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+    });
+  }
+});
+
+/* ===================== UI ===================== */
+function toggleMenu() { document.getElementById('mainNav').classList.toggle('mobile-open'); }
+document.querySelectorAll('#mainNav a').forEach(a => a.addEventListener('click',()=>document.getElementById('mainNav').classList.remove('mobile-open')));
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+/* ===================== CAROUSEL ===================== */
+(function(){
+  const wrap   = document.getElementById('carouselWrap');
+  const track  = document.getElementById('carouselTrack');
+  const dotsEl = document.getElementById('carouselDots');
+  const slides = track.querySelectorAll('.c-slide');
+  let cur = 0, timer = null, prog = null;
+  const GAP = 5000;
+  const TOTAL = slides.length;
+
+  if (!slides.length) return;
+
+  // Create dots for all slides
+  slides.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'c-dot'+(i===0?' active':'');
+    d.addEventListener('click',()=>goTo(i));
+    dotsEl.appendChild(d);
+  });
+  
+  slides[0].classList.add('active');
+
+  function goTo(n){
+    // Remove active state from current
+    slides[cur].classList.remove('active');
+    if(dotsEl.children[cur]) dotsEl.children[cur].classList.remove('active');
+    
+    // Calculate new current (with proper modulo for negative numbers)
+    cur = ((n % TOTAL) + TOTAL) % TOTAL;
+    
+    // Apply transition
+    track.style.transform = `translateX(-${cur*100}%)`;
+    
+    // Add active state to new current
+    slides[cur].classList.add('active');
+    if(dotsEl.children[cur]) dotsEl.children[cur].classList.add('active');
+    
+    resetProg();
+  }
+
+  window.slideNext = ()=>{
+    goTo(cur + 1);
+  };
+  
+  window.slidePrev = ()=>{
+    goTo(cur - 1);
+  };
+
+  function startAuto(){ 
+    timer = setInterval(()=>goTo(cur+1), GAP); 
+  }
+  
+  function stopAuto() { 
+    clearInterval(timer); 
+  }
+
+  function resetProg(){
+    stopAuto();
+    if(prog) prog.remove();
+    prog = document.createElement('div');
+    prog.className = 'c-progress';
+    wrap.appendChild(prog);
+    void prog.offsetWidth;
+    startAuto();
+  }
+
+  wrap.addEventListener('mouseenter', stopAuto);
+  wrap.addEventListener('mouseleave', ()=>{ stopAuto(); startAuto(); });
+
+  let tx = 0;
+  track.addEventListener('touchstart', e=>{ tx=e.touches[0].clientX; stopAuto(); },{passive:true});
+  track.addEventListener('touchend',   e=>{
+    const d = tx - e.changedTouches[0].clientX;
+    if(Math.abs(d)>48) {
+      d > 0 ? window.slideNext() : window.slidePrev();
+    }
+    else startAuto();
+  });
+
+  resetProg();
+})();
+
+/* ===================== BOOT ===================== */
+initGrids();
+</script>
+</body>
+</html>
